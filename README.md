@@ -1,6 +1,6 @@
 # Create a complete react application
 
-_Repo created for the course [Créer une application React complète](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete) d'OpenClassrooms_
+_Repo created for the course [Créer une application React complète](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete) of OpenClassrooms_
 
 - Selflearning
 - Theorical duration of the course : 12h
