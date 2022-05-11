@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useFetch } from '../utils/hooks/hooks'
 
 import styled from 'styled-components'
 import colors from '../utils/style/colors'
@@ -40,32 +40,8 @@ const LoaderWrapper = styled.div`
 
 function Freelances() {
 
-    // Variables for recovering data from API
-    const [freelancersList, setFreelancersList] = useState([])
-    // Loader
-    const [isDataLoading, setDataLoading] = useState(false)
-    // Error
-    const [error, setError] = useState(false)
-
-    // Recover data from API
-    useEffect(() => {
-        async function fetchFreelancers() {
-            setDataLoading(true) // Display loader
-            try {
-                const response = await fetch(`http://localhost:8000/freelances`)
-                const {freelancersList} = await response.json()
-                setFreelancersList(freelancersList)
-            }
-            catch(err) {
-                console.log(err)
-                setError(true)
-            }
-            finally {
-                setDataLoading(false) // Hide loader
-            }
-        }
-        fetchFreelancers()
-    }, [])
+    const {data, isLoading, error} = useFetch(`http://localhost:8000/freelances`)
+    const {freelancesData} = data
 
     if (error) {
         return <span>Oups il y a eu un problème</span>
@@ -76,13 +52,13 @@ function Freelances() {
         <div>
             <PageTitle>Trouvez votre prestataire</PageTitle>
             <PageSubtitle>Chez Shiny nous réunissons les meilleurs profils pour vous.</PageSubtitle>
-            {isDataLoading ? (
+            {isLoading ? (
                 <LoaderWrapper>
                     <Loader />
                 </LoaderWrapper>
             ) : (
                 <CardsContainer>
-                    {freelancersList.map((profile, index) => (
+                    {freelancesData.map((profile, index) => (
                         <Card
                             key={`${profile.name}-${index}`}
                             label={profile.job}

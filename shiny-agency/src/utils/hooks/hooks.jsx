@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from '../context/context'
 
+// Custom hook useFetch
 export function useFetch(url) {
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(false)
@@ -27,4 +29,10 @@ export function useFetch(url) {
     }, [url])
 
     return {isLoading, data, error}
+}
+
+// Custom hook useTheme
+export function useTheme() {
+    const {theme, toggleTheme} = useContext(ThemeContext)
+    return {theme, toggleTheme}
 }

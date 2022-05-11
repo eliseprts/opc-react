@@ -4,7 +4,7 @@ import colors from './colors'
 
 const StyledLink = styled(Link)`
   padding: 10px 15px;
-  color: ${colors.secondary};
+  color: ${({$theme}) => ($theme === 'light' ? '#8186A0' : '#ffffff')};
   text-decoration: none;
   font-size: 18px;
   text-align: center;
