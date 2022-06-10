@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import HomeIllustration from '../assets/home-illustration.svg'
-import colors from '../utils/style/colors'
-import StyledLink from '../utils/style/Link'
+import HomeIllustration from '../../assets/home-illustration.svg'
+import colors from '../../utils/style/colors'
+import StyledLink from '../../utils/style/Link'
 
 // Style
 const HomeWrapper = styled.div`
@@ -38,9 +38,14 @@ const Illustration = styled.img`
   flex: 1;
 `
 
+export function sum(a, b) {
+  return a + b
+}
+
 function Home() {
   return (
     <HomeWrapper>
+      {sum(40, 2)}
       <HomeContainer>
         <LeftCol>
           <StyledTitle>Repérez vos besoins, on s'occupe du reste, avec les meilleurs talents</StyledTitle>

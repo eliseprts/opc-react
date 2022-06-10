@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
 import { useContext } from 'react'
 
-import { SurveyContext } from '../utils/context/context'
-import { useFetch } from '../utils/hooks/hooks'
+import { SurveyContext } from '../../utils/context/context'
+import { useFetch } from '../../utils/hooks/hooks'
 
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import Loader from '../utils/style/Loader'
+import colors from '../../utils/style/colors'
+import Loader from '../../utils/style/Loader'
 
 // Style
 const SurveyContainer = styled.div`
@@ -31,7 +31,7 @@ const LinkWrapper = styled.div`
     }
 `
 const ReplyBox = styled.button`
-    border: non;
+    border: none;
     height: 100px;
     width: 300px;
     display: flex;
