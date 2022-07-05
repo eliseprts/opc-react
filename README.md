@@ -21,3 +21,7 @@ _Repo created for the course [Créer une application React complète](https://op
 ## Mission
 
 Create a website for a freelance agency
+
+## Used API
+
+To run the project, you need to use [this API](https://github.com/OpenClassrooms-Student-Center/7150606-API-React-intermediaire)
