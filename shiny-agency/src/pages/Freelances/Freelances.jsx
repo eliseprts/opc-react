@@ -1,9 +1,10 @@
 import { useFetch, useTheme } from '../../utils/hooks/hooks'
+import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
-import Card from '../../components/Card'
+import Card from '../../components/Card/Card'
 import Loader from '../../utils/style/Loader'
 
 // Style
@@ -58,17 +59,20 @@ function Freelances() {
         </PageSubtitle>
         {isLoading ? (
             <LoaderWrapper>
-            <Loader theme={theme} />
+                <Loader theme={theme} data-testid='loader'/>
             </LoaderWrapper>
         ) : (
             <CardsContainer>
-            {freelancersList?.map((profile, index) => (
-                <Card
-                key={`${profile.name}-${index}`}
-                label={profile.job}
-                title={profile.name}
-                picture={profile.picture}
-                />
+            {freelancersList?.map((profile) => (
+                <Link key={`freelance-${profile.id}`} to={`/profile/${profile.id}`}>
+                    <Card
+                        
+                        label={profile.job}
+                        title={profile.name}
+                        picture={profile.picture}
+                        theme={theme}
+                    />
+                </Link>
             ))}
             </CardsContainer>
         )}

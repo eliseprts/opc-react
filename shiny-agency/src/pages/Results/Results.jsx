@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { SurveyContext, ThemeContext } from '../../utils/context/context'
+import { SurveyContext } from '../../utils/context/context'
 import { useFetch, useTheme} from '../../utils/hooks/hooks'
 
 import Loader from '../../utils/style/Loader'
@@ -7,6 +7,7 @@ import StyledLink from '../../utils/style/Link'
 
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import EmptyList from '../../components/EmptyList/EmptyList'
 
 const ResultsContainer = styled.div`
     display: flex;
@@ -83,9 +84,13 @@ function Results() {
 
   const resultsData = data?.resultsData
 
+  if(resultsData?.length < 1) {
+    return <EmptyList theme={theme}/>
+  }
+
   return isLoading ? (
     <LoaderWrapper>
-      <Loader />
+      <Loader data-testid='loader' />
     </LoaderWrapper>
   ) : (
     <ResultsContainer theme={theme}>
@@ -111,8 +116,8 @@ function Results() {
               theme={theme}
               key={`result-detail-${index}-${result.title}`}
             >
-              <JobTitle theme={theme}>{result.title}</JobTitle>
-              <p>{result.description}</p>
+              <JobTitle theme={theme} data-testid='job-title'>{result.title}</JobTitle>
+              <p data-testid='job-description'>{result.description}</p>
             </JobDescription>
           ))}
       </DescriptionWrapper>

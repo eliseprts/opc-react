@@ -1,11 +1,15 @@
+// import {Component} from 'react'
+
 // Import PropTypes to declare the type of props that is expected when we recover it in a component
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 // Import styled components
 import styled from 'styled-components'
 
-import DefaultPicture from '../assets/profile.png'
-import colors from '../utils/style/colors'
+import DefaultPicture from '../../assets/profile.png'
+import { useTheme } from '../../utils/hooks/hooks'
+import colors from '../../utils/style/colors'
 
 // Style
 const CardLabel = styled.span`
@@ -44,14 +48,51 @@ const CardWrapper = styled.div`
 
 // Function
 function Card({label, title, picture}) {
+
+    const {theme} = useTheme()
+    // const [isFavorite, setIsFavorite] = useState(false)
+    // const star = isFavorite ? '⭐' : ''
+
     return (
-        <CardWrapper>
-            <CardLabel>{label}</CardLabel>
+        <CardWrapper 
+            theme={theme} 
+            // onClick={() => setIsFavorite(!isFavorite)}
+        >
+            <CardLabel theme={theme}>{label}</CardLabel>
             <CardImage src={picture} alt='freelance'/>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle theme={theme}>
+                {/* {star}  */}
+                {title} 
+                {/* {star} */}
+            </CardTitle>
         </CardWrapper>
     )
 }
+
+// class Card extends Component {
+
+//     constructor(props){
+//         super(props)
+//         this.state = {
+//             isFavorite: false,
+//         }
+//     }
+
+//     render() {
+//         const {theme, label, picture, title} = this.props
+
+//         return (
+//             <CardWrapper theme={theme} onClick={this.isFavorite}>
+//                 <CardLabel theme={theme}>{label}</CardLabel>
+//                 <CardImage src={picture} alt='freelance'/>
+//                 <CardTitle theme={theme}>
+//                     {title}
+//                 </CardTitle>
+//             </CardWrapper>
+//         )
+//     }
+
+// }
 
 // Type specification of each prop
 Card.propTypes = {

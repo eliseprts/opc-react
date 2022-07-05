@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useTheme } from '../utils/hooks/hooks'
+import { useTheme } from '../../utils/hooks/hooks'
 
 import styled from 'styled-components'
-import StyledLink from '../utils/style/Link'
+import StyledLink from '../../utils/style/Link'
 
-import DarkLogo from '../assets/dark-logo.png'
-import LightLogo from '../assets/light-logo.png'
+import DarkLogo from '../../assets/dark-logo.png'
+import LightLogo from '../../assets/light-logo.png'
 
 // Style
 const NavContainer = styled.nav`

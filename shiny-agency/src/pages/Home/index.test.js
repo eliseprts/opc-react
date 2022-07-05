@@ -1,6 +1,17 @@
-import { sum } from "./Home"
+import { screen } from '@testing-library/react'
+import Home from './Home'
+import { render } from '../../utils/test'
 
-test('Ma fonction sum', () => {
-    const result = sum(3, 7)
-    expect(result).toBe(10)
+describe('The Home component', () => {
+    it('should render title', () => {
+        render(
+            <Home />
+        )
+        expect(
+            screen.getByRole('heading', {
+                level: 1, 
+                text: 'Repérez vos besoins, on s\'occupe du reste, avec les meilleurs talents',
+            })
+        ).toBeTruthy()
+    })
 })

@@ -38,14 +38,9 @@ const Illustration = styled.img`
   flex: 1;
 `
 
-export function sum(a, b) {
-  return a + b
-}
-
 function Home() {
   return (
     <HomeWrapper>
-      {sum(40, 2)}
       <HomeContainer>
         <LeftCol>
           <StyledTitle>Repérez vos besoins, on s'occupe du reste, avec les meilleurs talents</StyledTitle>
